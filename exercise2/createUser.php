@@ -10,12 +10,13 @@
 	</head>
 	<body>
 		<?php 
-			$servername = "mysql.eecs.ku.edu";
+			$serverName = "mysql.eecs.ku.edu";
 			$username = "y038m265";
 			$password = "pukau9Ai";
+			$databaseName = "y038m265";
 	
 			// Create connection
-			$conn = new mysqli($servername, $username, $password);
+			$conn = new mysqli($serverName, $username, $password, $databaseName);
 
 			// Check connection
 			if ($conn->connect_error) {
