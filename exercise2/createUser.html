@@ -8,8 +8,20 @@
 		<meta name="description" content="Lets user create a profile.">
 		<meta name="author" content="Yuri Martinez-Moylan">
 	</head>
+	<style>
+		body {
+			background: LightBlue;
+		}
+	</style>
 	
 	<body>
-		<p>This link works!</p>
+		<h1>Create a User</h1>
+		<h3>Hello! Please enter a user ID you would like to be identified with.</h3>
+		<p>Note: the user id must be unique and cannot be left empty.</p>
 	</body>
+	
+	<form action="createUser.php" method="post">
+		<input name="userInput" type="text" placeholder="user ID"></input>
+		<input type="submit" value="Submit ID"></input>
+	</form>
 </html>
