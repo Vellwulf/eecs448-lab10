@@ -10,6 +10,18 @@
 	</head>
 	<body>
 		<?php 
+			$servername = "mysql.eecs.ku.edu";
+			$username = "y038m265";
+			$password = "pukau9Ai";
+	
+			// Create connection
+			$conn = new mysqli($servername, $username, $password);
+
+			// Check connection
+			if ($conn->connect_error) {
+				die("Connection failed: " . $conn->connect_error);
+			}
+			
 			$ID = $_POST["userInput"];
 			
 			if ($ID == "")
