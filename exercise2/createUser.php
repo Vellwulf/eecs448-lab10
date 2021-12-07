@@ -8,4 +8,15 @@
 		<meta name="description" content="Lets user create a profile.">
 		<meta name="author" content="Yuri Martinez-Moylan">
 	</head>
+	<body>
+		<?php 
+			$ID = $_POST["userInput"];
+			
+			if ($ID == "")
+				echo "User ID creation unsuccessful; user ID cannot be blank.";
+			
+			else
+				echo "User ID: " . $ID;
+		?>
+	</body>
 </html>
