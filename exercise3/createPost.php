@@ -15,7 +15,7 @@
 	</style>
 	<body>
 		<?php 
-			function isDuplicate($inputID, $conn) {
+			function isUser($inputID, $conn) {
 				$query = "SELECT user_id FROM Users";
 				$userIDs = $conn -> query($query);
 				
@@ -47,26 +47,23 @@
 			if ($ID == "" || $message == "")
 				echo "Post submission unsuccessful; both user ID and post cannot be left blank.";
 			
+			else if (!isUser($ID, $conn)) {
+				echo "Error: inputted user id does not exist in database. Please double-check input.";
+			}
+			
 			else {
 				echo "ID: " . $ID . "<br>";
 				echo "message: " . $message;
-			}
 			
-			/* else if (isDuplicate($ID, $conn)) {
-				echo "User ID create unsuccessful; user ID already exists.";
-			}
-			
-			else {
-				$sql = "INSERT INTO Users (user_id) VALUES ('" . $ID . "')";
+				$sql = "INSERT INTO Posts (content, author_id) VALUES ('".$message."', '".$ID."')";
 
 				if ($conn->query($sql) === TRUE) {
-					echo "User ID creation successful! Welcome, " . $ID;
+					echo "New post created successfully!";
 				} 
-				
 				else {
 					echo "Error: " . $sql . "<br>" . $conn->error;
 				}
-			} */
+			}
 			
 			$conn -> close();
 		?>
