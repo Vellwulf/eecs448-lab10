@@ -17,6 +17,14 @@
 			border: 1px solid black;
 			border-collapse: collapse;
 		}
+		
+		th {
+			background: blue;
+		}
+		
+		td {
+			background: red;
+		}
 	</style>
 	<body>
 		<h1>All Current Users:</h1>
