@@ -16,6 +16,15 @@
 		table, th, td {
 			border: 1px solid black;
 			border-collapse: collapse;
+			text-align: center;
+		}
+		
+		th {
+			background: #8DFF7F;
+		}
+		
+		td {
+			background: #FF7F7F;
 		}
 	</style>
 	
