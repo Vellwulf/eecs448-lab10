@@ -19,11 +19,11 @@
 		}
 		
 		th {
-			background: blue;
+			background: #8DFF7F;
 		}
 		
 		td {
-			background: red;
+			background: #FF7F7F;
 		}
 	</style>
 	<body>
