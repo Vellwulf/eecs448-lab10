@@ -15,7 +15,7 @@
 	</style>
 	<body>
 		<?php 
-			function isDuplicate($inputID, $conn) {
+			function isUser($inputID, $conn) {
 				$query = "SELECT user_id FROM Users";
 				$userIDs = $conn -> query($query);
 				
@@ -46,7 +46,7 @@
 			if ($ID == "")
 				echo "User ID creation unsuccessful; user ID cannot be blank.";
 			
-			else if (isDuplicate($ID, $conn)) {
+			else if (isUser($ID, $conn)) {
 				echo "User ID create unsuccessful; user ID already exists.";
 			}
 			
