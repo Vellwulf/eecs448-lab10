@@ -12,6 +12,24 @@
 		body {
 			background: LightBlue;
 		}
+		
+		table, th, td {
+			border: 1px solid black;
+			border-collapse: collapse;
+			text-align: center;
+		}
+		
+		th, td {
+			max-width: 480px;
+		}
+		
+		th {
+			background: #8DFF7F;
+		}
+		
+		td {
+			background: #FF7F7F;
+		}
 	</style>
 	
 	<?php
@@ -52,10 +70,13 @@
 						echo "<td>".$tempPost["post_id"]."</td>";
 						echo "<td>".$tempPost["content"]."</td>";
 						echo "<td>".$tempPost["author_id"]."</td>";
-						echo "<tr>";
+						echo '<td><input type="checkbox" value="'.$tempPost["post_id"].'"></input></td>';
+						echo "</tr>";
 					}
 				?>
 			</table>
+			<br>
+			<input type="submit" value="Confirm"></input>
 		</form>
 	</body>
 </html>
