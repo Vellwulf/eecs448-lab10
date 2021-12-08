@@ -39,7 +39,11 @@
 		<form action="viewUserPosts.php" method="post">
 			<label for="userSelect">Select which user's posts you would like to see:</label><br>
 			<select name="userSelect">
-				<option name="test" value="test">test</option>
+				<?php
+					while($tempID = $userIDs->fetch_assoc()) {
+						echo "<option value='".$tempID["user_id"]."'>".$tempID["user_id"]."</option>";
+					}
+				?>
 			</select>
 			
 			<br><br>
