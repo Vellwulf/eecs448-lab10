@@ -12,6 +12,11 @@
 		body {
 			background: LightBlue;
 		}
+		
+		table, th, td {
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
 	</style>
 	
 	<?php
@@ -29,15 +34,25 @@
 		}
 		
 		$targetID = $_POST["userSelect"];
-		$userIDs = $conn->query("SELECT user_id FROM Users");
+		$userPosts = $conn->query("SELECT post_id, content FROM Posts WHERE author_id='".$targetID."'");
 		
 		$conn -> close();
 	?>
 	
 	<body>
-		<?php
-			echo "targetID: " . $targetID;
-		?>
-			
+		<h3>Posts by <?php echo $targetID ?>:</h3>
+		
+		<table style="width: 50%;">
+			<tr>
+				<th width="75px">Post ID</th>
+				<th>Content</th>
+			</tr>
+			<?php
+				while ($tempPost = $userPosts->fetch_assoc()) {
+					echo "<tr><td>" . $tempPost["post_id"] . "</td><td>" . $tempPost["content"] . "</td></tr>";
+				}
+			?>
+		</table>
+		
 	</body>
 </html>
