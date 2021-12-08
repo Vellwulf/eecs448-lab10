@@ -14,7 +14,24 @@
 		}
 	</style>
 	
+	<?php
+		$serverName = "mysql.eecs.ku.edu";
+		$username = "y038m265";
+		$password = "pukau9Ai";
+		$databaseName = "y038m265";
+	
+		// Create connection
+		$conn = new mysqli($serverName, $username, $password, $databaseName);
+
+		// Check connection
+		if ($conn->connect_error) {
+			die("Connection failed: " . $conn->connect_error);
+		}
+	?>
+	
 	<body>
 		<h1>View User Posts</h1>
+		
+		
 	</body>
 </html>
