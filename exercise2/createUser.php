@@ -44,21 +44,21 @@
 			$ID = $_POST["userInput"];
 			
 			if ($ID == "")
-				echo "User ID creation unsuccessful; user ID cannot be blank.";
+				echo "<h3>User ID creation unsuccessful; user ID cannot be blank.</h3>";
 			
 			else if (isUser($ID, $conn)) {
-				echo "User ID create unsuccessful; user ID already exists.";
+				echo "<h3>User ID create unsuccessful; user ID already exists.</h3>";
 			}
 			
 			else {
 				$sql = "INSERT INTO Users (user_id) VALUES ('" . $ID . "')";
 
 				if ($conn->query($sql) === TRUE) {
-					echo "User ID creation successful! Welcome, " . $ID;
+					echo "<h3>User ID creation successful! Welcome, " . $ID . "</h3>";
 				} 
 				
 				else {
-					echo "Error: " . $sql . "<br>" . $conn->error;
+					echo "<h3>Error: " . $sql . "<br>" . $conn->error . "</h3>";
 				}
 			}
 			

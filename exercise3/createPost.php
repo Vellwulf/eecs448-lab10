@@ -45,23 +45,20 @@
 			$message = $_POST["postMessage"];
 			
 			if ($ID == "" || $message == "")
-				echo "Post submission unsuccessful; both user ID and post cannot be left blank.";
+				echo "<h3>Error: user ID and post message inputs cannot be blank.</h3>";
 			
 			else if (!isUser($ID, $conn)) {
-				echo "Error: inputted user id does not exist in database. Please double-check input.";
+				echo "<h3>Error: inputted user id does not exist in database. Please double-check input.</h3>";
 			}
 			
 			else {
-				echo "ID: " . $ID . "<br>";
-				echo "message: " . $message;
-			
 				$sql = "INSERT INTO Posts (content, author_id) VALUES ('".$message."', '".$ID."')";
 
 				if ($conn->query($sql) === TRUE) {
-					echo "New post created successfully!";
+					echo "<h3>New post created successfully!</h3>";
 				} 
 				else {
-					echo "Error: " . $sql . "<br>" . $conn->error;
+					echo "<h3>Error: " . $sql . "<br>" . $conn->error . "</h3>";
 				}
 			}
 			
