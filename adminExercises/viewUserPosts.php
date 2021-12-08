@@ -28,23 +28,16 @@
 			die("Connection failed: " . $conn->connect_error);
 		}
 		
+		$targetID = $_POST["userSelect"];
 		$userIDs = $conn->query("SELECT user_id FROM Users");
 		
 		$conn -> close();
 	?>
 	
 	<body>
-		<h1>View User Posts</h1>
-		
-		<form action="viewUserPosts.php" method="post">
-			<label for="userSelect">Select which user's posts you would like to see:</label><br>
-			<select name="userSelect">
-				<option name="test" value="test">test</option>
-			</select>
+		<?php
+			echo "targetID: " . $targetID;
+		?>
 			
-			<br><br>
-			
-			<input type="submit" value="submit">
-		</form>
 	</body>
 </html>
