@@ -12,8 +12,14 @@
 		body {
 			background: LightBlue;
 		}
+		
+		table, th, td {
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
 	</style>
 	<body>
+		<h1>All Current Users:</h1>
 		<?php 
 			$serverName = "mysql.eecs.ku.edu";
 			$username = "y038m265";
@@ -28,8 +34,19 @@
 				die("Connection failed: " . $conn->connect_error);
 			}
 			
-			echo "connection successful";
+			$userIDs = $conn->query("SELECT user_id FROM Users");
+
 			$conn -> close();
 		?>
+		<table>
+			<tr>
+				<th>User ID</th>
+			</tr>
+			<?php
+				while ($tempID = $userIDs->fetch_assoc())
+					echo "<tr><td>" . $tempID["user_id"] . "</td></tr>";
+			?>
+		</table>
+		
 	</body>
 </html>
