@@ -15,6 +15,7 @@
 		
 		p.ID {
 			text-indent: 15px;
+			margin-bottom: -10px;
 		}
 	</style>
 	
@@ -36,11 +37,13 @@
 	?>
 	
 	<body>
-		<h3>Deletion complete!</h3>
+		<h3>Deletion complete! Here are the IDs of the deleted posts:</h3>
 		
 		<?php
 			forEach($targetPosts as $postID) {
-				echo '<p class="ID">post ID: ' . $postID . '</p>';
+				$sql = "DELETE FROM Posts WHERE post_id=" . $postID;
+				$conn -> query($sql);
+				echo '<p class="ID">' . $postID . '</p>';
 			}
 			
 			$conn -> close();
